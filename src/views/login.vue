@@ -68,7 +68,8 @@ export default {
           }
         )
         .then((res) => {
-          if (res) this.toMain();
+          console.log(res);
+          if (res.response) this.toMain();
           else console.log("failed");
         })
         .catch((err) => {
