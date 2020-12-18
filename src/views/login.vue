@@ -35,33 +35,22 @@
 </template>
  
 <script>
-import axios from "axios";
 import envSettings from "../envSettings";
-axios.defaults.withCredentials = true;
 export default {
-  // data: function () {
-  //   return {
-  //     username: document.getElementById("userID").value,
-  //     password: document.getElementById("userPW").value,
-  //   };
-  // },
   name: "login",
   methods: {
-    toMain: () => {
+    toMain() {
       this.$router.push({
         name: "main",
       });
     },
-    logIn: (e) => {
-      // console.log(this.userID);
-      // this.$http
-      axios
+    logIn() {
+      this.$http
         .post(
           `${envSettings.back}user/signin`,
           {
-            username: document.getElementById("userID").value,
-            password: document.getElementById("userPW").value,
-            // password: this.userPW,
+            username: this.userID,
+            password: this.userPW,
           },
           {
             withCredentials: true,
@@ -69,7 +58,7 @@ export default {
         )
         .then((res) => {
           console.log(res);
-          if (res.response) this.toMain();
+          if (res.data.response) this.toMain();
           else console.log("failed");
         })
         .catch((err) => {
