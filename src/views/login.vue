@@ -36,6 +36,7 @@
  
 <script>
 import axios from "axios";
+import envSettings from "../envSettings";
 axios.defaults.withCredentials = true;
 export default {
   // data: function () {
@@ -56,7 +57,7 @@ export default {
       // this.$http
       axios
         .post(
-          "https://young-eyrie-55465.herokuapp.com/user/signin",
+          `${envSettings.back}user/signin`,
           {
             username: document.getElementById("userID").value,
             password: document.getElementById("userPW").value,
