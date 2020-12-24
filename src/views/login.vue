@@ -57,9 +57,10 @@ export default {
           }
         )
         .then((res) => {
-          console.log(res);
-          if (res.data.response) this.toMain();
-          else console.log("failed");
+          console.log("login attempt response", res);
+          if (res.data.result) {
+            this.toMain();
+          } else console.log("login failed");
         })
         .catch((err) => {
           console.log(err);
