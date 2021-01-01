@@ -102,7 +102,7 @@ export default new Vuex.Store({
   },
   actions: {
     // 'SOCKET123_test'(state, rooms) {
-    SOCKET123_test(state, rooms) {
+    SOCKET123_roomList(state, rooms) {
       console.log('received room.list')
       console.log(rooms)
       // console.log(rooms.state)

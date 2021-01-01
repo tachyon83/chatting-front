@@ -24,6 +24,14 @@ new Vue({
   methods: {
     testFromClient() {
       this.$socket.emit('from.client2', 'ping!')
+    },
+    chat(packet) {
+      this.$socket.emit("chat", packet);
+    }
+  },
+  sockets: {
+    roomList: function (data) {
+      console.log(data)
     }
   },
   router,

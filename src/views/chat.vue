@@ -2,7 +2,7 @@
   <div class="view-wrap">
     <modalWrap />
     <infoWrap />
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -11,19 +11,30 @@ import infoWrap from "@/components/infoWrap.vue";
 import modalWrap from "@/components/modalWrap.vue";
 
 export default {
-  name: 'chat',
+  created() {
+    //this does not work
+    // this.$socket.on("roomListResponse", (packet) => {
+    //   console.log(packet);
+    // });
+    this.sockets.subscribe("roomListResponse", (packet) => {
+      console.log(packet);
+    });
+    this.$socket.emit("roomList");
+  },
+  name: "chat",
   components: {
     infoWrap,
     modalWrap,
   },
   data() {
-    return {
-
-    }
-  }
-}
+    return {};
+  },
+};
 </script>
 
 <style scoped>
-  .view-wrap {display: flex; width: 100%;}
+.view-wrap {
+  display: flex;
+  width: 100%;
+}
 </style>

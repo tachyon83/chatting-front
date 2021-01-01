@@ -16,16 +16,16 @@ export default {
     // this.$socket.on("room.list.response", (rooms) => {
     //   console.log("rooms data received");
     // });
-    this.$socket.on("test", (data, fn) => {
-      console.log("test received", data);
-      fn("well received");
-    });
+    // this.$socket.on("test", (data, fn) => {
+    //   console.log("test received", data);
+    //   fn("well received");
+    // });
     // console.log("why not receiving!");
   },
   methods: {
-    testFromClient() {
-      this.$socket.emit("from.client2", "ping!");
-    },
+    // testFromClient() {
+    //   this.$socket.emit("from.client2", "ping!");
+    // },
   },
 };
 </script>
