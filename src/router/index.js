@@ -51,7 +51,7 @@ const routes = [
           // options: { path: "/my-app/" } //Optional options
         }))
       }
-      next()
+      next();
     },
     children: [
       {
